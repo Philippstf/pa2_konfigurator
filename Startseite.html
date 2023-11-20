@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyTrumpf | TRUMPF</title>
+  <link rel="icon" type="image/png" href="\img/TRUMPFlogo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* CSS-Styling für den Header */
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+    /* CSS-Styling für das Logo */
+    header img {
+      max-width: 75px;
+      height: auto;
+      margin: 0 auto; /* Zum Zentrieren des Logos */
+    }
+    /* CSS-Styling für das Menü */
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    nav ul li {
+      margin-left: 10px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #000;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #cad962; /* Schriftfarbe beim Hover */
+    }
+
+    nav ul li a i {
+      margin-right: 3px; /* Abstand zwischen Icon und Text */
+    }
+    /* CSS-Styling für den Inhalt */
+    body {
+      text-align: center;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    p {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 60px; /* Breiterer Button */
+      font-size: 32px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #cad962;
+      color: #fff; /* Weiße Schriftfarbe */
+      border: none;
+      transition: background-color 0.3s, color 0.3s; /* Übergangseffekt bei Hover */
+    }
+    .button:hover {
+      background-color: transparent; /* Transparenter Hintergrund beim Hover */
+      color: #cad962; /* Schriftfarbe beim Hover */
+      border: 2px solid #cad962; /* Border mit 2px Breite und Farbe #cad962 */
+    }
+    .upload-container {
+      margin-top: 20px;
+    }
+    .upload-container input[type="file"] {
+      display: none;
+    }
+    .upload-container label {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 20px;
+      color: #000;
+      cursor: pointer;
+    }
+    .upload-container label:hover {
+      background-color: #fff;
+      
+    }
+    .upload-icon {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Menü -->
+    <nav>
+      <ul>
+        <li><a href="Search.html"><i class="fas fa-search"></i> Search</a></li>
+        <li><a href="Kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+        <li><a href="profiles.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="sprache.html"><i class="fas fa-globe"></i> Sprache</a></li>
+        <li><a href="startseite.html"><i class="fas fa-home"></i> Startseite</a></li>
+      </ul>
+    </nav>
+
+    <!-- Logo -->
+    <a href="\Startseite.html">
+      <img src="img/Trumpflogo.png" alt="Logo">
+    </a>
+
+  </header>
+
+  <!-- Inhalt des Body -->
+  <h1>Bending Cell<br>Online Configurator</h1>
+  <p>Pay only what you need.<br>Configure the bending cell that suits you.</p>
+  <a class="button" href="Cadupload.html">Let's start</a>
+
+  <!-- Dokumentupload -->
+  <div class="upload-container">
+    <input type="file" id="file-upload" />
+    <label for="file-upload"><i class="fas fa-paperclip upload-icon"></i> Load your drafts </label>
+  </div>
+
+</body>
+</html>

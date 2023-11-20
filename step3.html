@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyTrumpf | TRUMPF</title>
+  <link rel="icon" type="image/png" href="\img/TRUMPFlogo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* CSS-Styling für den Header */
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* CSS-Styling für das Logo */
+    header img {
+      max-width: 75px;
+      height: auto;
+      margin: 0 auto; /* Zum Zentrieren des Logos */
+    }
+    
+    /* CSS-Styling für das Menü */
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    nav ul li {
+      margin-left: 10px;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      color: #000;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #cad962; /* Schriftfarbe beim Hover */
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    /* CSS-Styling für die Fortschrittsanzeigen */
+    #progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    
+    .progress-circle {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      background-color: transparent;
+    }
+    
+    .progress-circle.active {
+      background-color: #cad962;
+    }
+    
+    .progress-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 25px;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .progress-line {
+      width: 100px;
+      height: 3px;
+      background-color: #000;
+      margin: 0 15px;
+    }
+    
+    p {
+      font-size: 24px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    
+    #last-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .original-image {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .left-button,
+    .right-button {
+      color: black;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 12px; 
+      background-color: transparent; 
+      border: 2px solid black; 
+      padding: 0 16px; 
+      height: 80px; 
+      font-size: 16px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      text-decoration: none;
+    }
+    
+    .left-button:hover,
+    .right-button:hover {
+      background-color: #CAD962;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .selected-element {
+      border: 3px solid #CAD962;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Zentriert den Inhalt vertikal */
+      justify-content: center; /* Zentriert den Inhalt horizontal */
+      margin-top: 50px;
+      max-width: 600px; /* Hinzugefügte Regel */
+      margin-left: auto; /* Hinzugefügte Regel */
+      margin-right: auto; /* Hinzugefügte Regel */
+    }
+    
+    .selected-element img {
+      width: 80%; /* Verkleinern des Bildes */
+      max-width: 200px; /* Verändern Sie das für die gewünschte Größe */
+      margin: 10px 0;
+    }
+    
+    .title,
+    .price {
+      text-align: center;
+      font-size: large; /* Verkleinern der Schriftgröße */
+      margin-top: 10px; /* Verringern des Abstands nach oben */
+      margin-bottom: 5px; /* Verringern des Abstands nach unten */
+    }
+    
+    .info {
+      list-style: none;
+      padding: 0;
+      text-align: left; /* Zentriert den Text in der Info-Liste */
+      font-size: small; /* Verkleinern der Schriftgröße */
+      margin-top: 5px; /* Verringern des Abstands nach oben */
+      margin-bottom: 0; /* Entfernen des Abstands nach unten */
+    }
+    
+    .bullet-point {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #cad962;
+      margin-right: 5px;
+      text-align: left;
+    }
+    
+    .custom-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 50px;
+      max-width: 900px; /* Hinzugefügte Regel */
+      margin-left: auto; /* Hinzugefügte Regel */
+      margin-right: auto; /* Hinzugefügte Regel */
+    }
+    
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid #000;
+    }
+    
+    .column h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .column p {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .column button {
+      border: 2px solid #000;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: transparent;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .column button:hover {
+      background-color: #cad962;
+      color: #fff;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Funktion zum Extrahieren der URL-Parameter
+      function getParameterByName(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+
+      // Ausgewähltes Element aus den URL-Parametern extrahieren
+      var selectedElement = getParameterByName('selected');
+
+      // Element anzeigen
+      var elementContainer = document.getElementById('selected-element');
+      if (selectedElement === 'best-in-class') {
+        elementContainer.innerHTML = `
+          <div class="selected-element">
+            <h2 class="title">Best in class</h2>
+            <img src="img/Maschine_Bild.JPG" alt="Maschine 1">
+            <h2 class="price">0.81€ per part*</h2>
+            <ul class="info">
+              <li><span class="bullet-point"></span>Up to <b>240 parts</b> per hour</li>
+              <li><span class="bullet-point"></span>Up to <b>8kg</b> parts</li>
+              <li><span class="bullet-point"></span>Up to <b>600 x 400 mm</b> parts</li>
+            </ul>
+          </div>
+        `;
+      } else if (selectedElement === 'value-for-money') {
+        elementContainer.innerHTML = `
+          <div class="selected-element">
+            <h2 class="title">Value for money</h2>
+            <img src="img/Maschine_Bild.JPG" alt="Maschine 2">
+            <h2 class="price">0.64€ per part*</h2>
+            <ul class="info">
+              <li><span class="bullet-point"></span>Up to <b>180 parts</b> per hour</li>
+              <li><span class="bullet-point"></span>Up to <b>5kg</b> parts</li>
+              <li><span class="bullet-point"></span>Up to <b>400 x 300 mm</b> parts</li>
+            </ul>
+          </div>
+        `;
+      } else if (selectedElement === 'launch-the-next-step') {
+        elementContainer.innerHTML = `
+          <div class="selected-element">
+            <h2 class="title">Launch the next step</h2>
+            <img src="img/Maschine_Bild.JPG" alt="Maschine 3">
+            <h2 class="price">0.73 per part*</h2>
+            <ul class="info">
+              <li><span class="bullet-point"></span>Up to <b>210 parts</b> per hour</li>
+              <li><span class="bullet-point"></span>Up to <b>8kg</b> parts</li>
+              <li><span class="bullet-point"></span>Up to <b>500 x 350 mm</b> parts</li>
+            </ul>
+          </div>
+        `;
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <!-- Menü -->
+    <nav>
+      <ul>
+        <li><a href="Search.html"><i class="fas fa-search"></i> Search</a></li>
+        <li><a href="Kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+        <li><a href="profiles.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="sprache.html"><i class="fas fa-globe"></i> Sprache</a></li>
+        <li><a href="startseite.html"><i class="fas fa-home"></i> Startseite</a></li>
+      </ul>
+    </nav>
+
+    <!-- Logo -->
+    <a href="\Startseite.html">
+      <img src="img/Trumpflogo.png" alt="Logo">
+    </a>
+  </header>
+
+  <!-- Inhalt des Body -->
+  <h1>You make it. <br> Get your personal offer today</h1>
+  <p>Choose the payment option that suits you and your company</p>
+
+  <div id="last-container" style="display: flex; align-items: center; justify-content: center;">
+    <!-- Buttons -->
+    <div class="button-container" style="display: flex; align-items: center; gap: 10px;">
+      <a href="step2.html" class="left-button">Previous <br> Step</a>
+
+      <!-- Anzeige des ausgewählten Elements -->
+      <div id="selected-element"></div>
+      
+      <div class="custom-container">
+        <div class="column">
+          <h2>Equipment Leasing</h2>
+          <p>Rent a machine without high acquisition costs. This offer is provided by <b>CAPEX and OPEX.</b></p>
+          <button class="send-button">Send Request</button>
+        </div>
+        <div class="column">
+          <h2>Buy the cell</h2>
+          <p>Buy everything from a single source and take advantage of our attractive <b> TRUMPF Bank </b> conditions.</p>
+          <button class="send-button">Send Request</button>
+        </div>
+        <div class="column">
+          <h2>
+            Pay per Part <i class="fas fa-star" style="color: #CAD962;"></i> 
+          </h2>
+          <p>Start right away. <b>Pay only for what you produce</b>, without own hardware. <br> <br></p>
+          <button class="send-button">Send Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="progress-container">
+    <div class="progress-circle">
+      <span class="progress-number">1</span>
+    </div>
+    <div class="progress-line"></div>
+    <div class="progress-circle">
+       <span class="progress-number">2</span>
+     </div>
+     <div class="progress-line"></div>
+     <div class="progress-circle active">
+       <span class="progress-number">3</span>
+     </div>
+  </div>
+</body>
+</html>
